@@ -262,29 +262,25 @@
 					</g>
 				{/each}
 
-				<!-- Single shared tooltip rendered outside the per-node loop.
-				     Avoids stale-content flicker that happens when each node renders its own
-				     conditional foreignObject and Svelte momentarily reuses prior data. -->
-				{#if hoverId && hoverId !== activeId}
-					{@const r = readings.find((x) => x.id === hoverId)}
-					{#if r}
-						{@const p = nodePos(r)}
-						{@const tooltipAbove = p.y > cy}
-						<foreignObject
-							x={p.x - 130}
-							y={tooltipAbove ? p.y - 160 : p.y + 75}
-							width="260"
-							height="100"
-							pointer-events="none"
-						>
-							<div class="constellation__tooltip">
-								<div class="constellation__tooltip-title">{r.title}</div>
-								<div class="constellation__tooltip-preview">{r.preview}</div>
-							</div>
-						</foreignObject>
-					{/if}
-				{/if}
 			</svg>
+
+			{#if hoverId && hoverId !== activeId}
+				{@const r = readings.find((x) => x.id === hoverId)}
+				{#if r}
+					{@const p = nodePos(r)}
+					{@const tooltipAbove = p.y > cy}
+					<div
+						class="constellation__tooltip-anchor"
+						class:constellation__tooltip-anchor--above={tooltipAbove}
+						style="left: {(p.x / VB_W) * 100}%; top: {(p.y / VB_H) * 100}%"
+					>
+						<div class="constellation__tooltip">
+							<div class="constellation__tooltip-title">{r.title}</div>
+							<div class="constellation__tooltip-preview">{r.preview}</div>
+						</div>
+					</div>
+				{/if}
+			{/if}
 
 			<div class="constellation__hint">
 				<span>↻</span> Hover for preview · Click to expand
@@ -447,6 +443,18 @@
 		letter-spacing: 0.06em;
 		color: var(--color-dark-charcoal);
 		line-height: 1.2;
+	}
+
+	.constellation__tooltip-anchor {
+		position: absolute;
+		width: 220px;
+		pointer-events: none;
+		z-index: 10;
+		transform: translateX(-50%) translateY(40px);
+	}
+
+	.constellation__tooltip-anchor--above {
+		transform: translateX(-50%) translateY(calc(-100% - 40px));
 	}
 
 	.constellation__tooltip {

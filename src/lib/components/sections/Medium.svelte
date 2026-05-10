@@ -58,19 +58,20 @@
 				<div class="medium-card__art medium-card__art--stone">
 					<img
 						class="medium-card__img"
-						src="/medium/chola.png"
-						alt="Chola-era bronze sculpture of a dancer"
+						src="/medium/sculpture.png"
+						alt="Stone carving from Thillai Nataraja Temple, Chidambaram, Tamil Nadu — Chola-period granite sculpture depicting a dance posture"
 						draggable="false"
 						loading="lazy"
 					/>
 				</div>
 				<div class="medium-card__body">
-					<span class="medium-card__era">10th century</span>
-					<h3 class="medium-card__heading">The Chola Bronze</h3>
+					<span class="medium-card__era">12th–13th century</span>
+					<h3 class="medium-card__heading">The Stone Carving</h3>
 					<p class="medium-card__text">
-						Sculptures represented Sadir, the form later renamed Bharatanatyam, for centuries.
-						The sculptor knew what they were carving. They lived inside the tradition. The bronze
-						sat in one temple for a thousand years.
+						Carvings at temples like Thillai Nataraja in Chidambaram represented Sadir, the form
+						later renamed Bharatanatyam, for centuries. The sculptor knew what they were carving.
+						They lived inside the tradition. This granite carving sat in one temple for a
+						thousand years.
 					</p>
 					<span class="medium-card__tag medium-card__tag--stone">Embedded knowledge</span>
 				</div>
@@ -80,8 +81,8 @@
 				<div class="medium-card__art medium-card__art--sepia">
 					<img
 						class="medium-card__img medium-card__img--sepia"
-						src="/medium/photograph.png"
-						alt="Vintage photograph of a Bharatanatyam dancer in performance"
+						src="/medium/art.png"
+						alt="Artwork depicting a Bharatanatyam dancer"
 						draggable="false"
 						loading="lazy"
 					/>
@@ -112,7 +113,7 @@
 					<h3 class="medium-card__heading">The Prompt</h3>
 					<p class="medium-card__text">
 						Someone typed "Indian classical dance" and walked away. No cultural knowledge. No
-						tradition. No accountability. Two million views and no disclaimer.
+						tradition. No accountability. Millions of views and no disclaimer.
 					</p>
 					<span class="medium-card__tag medium-card__tag--digital">Zero context</span>
 				</div>

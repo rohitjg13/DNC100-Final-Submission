@@ -76,14 +76,12 @@
 			</p>
 
 			<div class="conclusion__directives">
-				<p class="conclusion__directive">Name the chain.</p>
-				<p class="conclusion__directive">
-					Refuse to call AI outputs Indian classical dance without caveat.
-				</p>
-				<p class="conclusion__directive">
-					Put the devadasis back into the lineage, and into any honest account of what AI now
-					reproduces.
-				</p>
+				<p class="conclusion__directives-label">Three things this project is arguing:</p>
+				<ul class="conclusion__directive-list">
+					<li>Trace the full chain. Colonial law stripped devadasis of legitimacy, brahminical reform sanitized what was left, the Sangeet Natak Akademi turned that cleaned-up version into the official canon, the internet documented it at scale, and AI learned from that.</li>
+					<li>Stop calling AI-generated dance videos "Indian classical dance" without explaining what they are actually based on and what they leave out.</li>
+					<li>When writing about Bharatanatyam or any related form, include the devadasis. They built it. They were written out of their own lineage, and that erasure is what AI is now reproducing at scale.</li>
+				</ul>
 			</div>
 
 			<p class="conclusion__body-final">
@@ -209,37 +207,37 @@
 		margin: 0 0 0.5rem;
 	}
 
-	.conclusion__body p:first-of-type::first-letter {
-		font-family: var(--font-serif);
-		font-size: 2.6rem;
-		font-weight: 600;
-		line-height: 0.85;
-		float: left;
-		margin: 0.2rem 0.5rem 0 0;
-		color: var(--color-warm-brown);
-	}
 
 	.conclusion__directives {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 1.4rem;
-		margin: 1.5rem 0;
-		padding: 1.5rem 0;
-		border-top: 1px dashed var(--color-line-strong);
-		border-bottom: 1px dashed var(--color-line-strong);
-		text-align: center;
+		margin: 1.25rem 0;
+		padding: 1rem 1.1rem;
+		background-color: rgba(139, 105, 20, 0.06);
+		border-left: 3px solid var(--color-warm-brown);
+		border-radius: 0 4px 4px 0;
+		text-align: left;
 	}
 
-	.conclusion__directive {
-		font-family: var(--font-serif);
-		font-size: clamp(1.15rem, 2vw, 1.55rem);
+	.conclusion__directives-label {
+		font-size: 0.72rem;
 		font-weight: 700;
-		line-height: 1.3;
-		letter-spacing: -0.01em;
-		color: #8b6914;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+		color: var(--color-warm-brown);
+		margin: 0 0 0.6rem;
+	}
+
+	.conclusion__directive-list {
 		margin: 0;
-		max-width: 30ch;
+		padding: 0 0 0 1.1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.conclusion__directive-list li {
+		font-size: 0.9rem;
+		line-height: 1.55;
+		color: var(--color-charcoal-soft);
 	}
 
 	.conclusion__body-final {
