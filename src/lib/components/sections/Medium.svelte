@@ -27,9 +27,9 @@
 			const progress = Math.min(1, (t - v0) / 1400); // fast: 1.4s
 			// Ease-out so the big number settles cleanly at the end
 			const eased = 1 - Math.pow(1 - progress, 3);
-			viewsCount = Math.floor(eased * 2_000_000);
+			viewsCount = Math.floor(eased * 10_000);
 			if (progress < 1) requestAnimationFrame(stepViews);
-			else viewsCount = 2_000_000;
+			else viewsCount = 10_000;
 		};
 		requestAnimationFrame(stepViews);
 	}
@@ -91,8 +91,10 @@
 					<span class="medium-card__era">Mid 20th century</span>
 					<h3 class="medium-card__heading">The Photograph</h3>
 					<p class="medium-card__text">
-						Photography froze real performances into images. The photographer was in the room.
-						Something was lost (rasa doesn't survive in celluloid), but the source was real.
+						Photography froze real performances into a single frame. A good photograph can still
+						hold rasa — in the eyes, the hands, the expression caught mid-abhinaya. But it
+						captures one moment, not the full arc. The photographer was in the room. They knew
+						what they were looking at.
 					</p>
 					<span class="medium-card__tag medium-card__tag--sepia">Documented reality</span>
 				</div>
@@ -113,11 +115,24 @@
 					<h3 class="medium-card__heading">The Prompt</h3>
 					<p class="medium-card__text">
 						Someone typed "Indian classical dance" and walked away. No cultural knowledge. No
-						tradition. No accountability. Millions of views and no disclaimer.
+						tradition. No accountability. Thousands of views and no disclaimer.
 					</p>
 					<span class="medium-card__tag medium-card__tag--digital">Zero context</span>
 				</div>
 			</article>
+		</div>
+
+		<div class="medium__video" use:reveal>
+			<p class="medium__video-label">This is KOYAL — the video this project is about</p>
+			<div class="medium__video-wrap">
+				<iframe
+					src="https://www.youtube.com/embed/vX3sougjdHA"
+					title="KOYAL — AI-generated Indian classical dance"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen
+				></iframe>
+			</div>
 		</div>
 
 		<div class="medium__action">
@@ -131,7 +146,7 @@
 					<p>
 						Not the medium. The sculptor knew what they were carving. The photographer was in the
 						room. The person running the AI prompt was not. And the bronze sat in one temple for a
-						thousand years. KOYAL has two million views and no disclaimer. That is not a new
+						thousand years. KOYAL has thousands of views and no disclaimer. That is not a new
 						medium. That is a different problem wearing the same costume.
 					</p>
 
@@ -143,9 +158,9 @@
 						</div>
 						<div class="medium-stat__divider" aria-hidden="true"></div>
 						<div class="medium-stat medium-stat--views">
-							<div class="medium-stat__value">{formatViews(viewsCount)}</div>
+							<div class="medium-stat__value">{formatViews(viewsCount)}{viewsCount >= 10_000 ? '+' : ''}</div>
 							<div class="medium-stat__label">views</div>
-							<div class="medium-stat__hint">KOYAL, in a few weeks</div>
+							<div class="medium-stat__hint">KOYAL, and still spreading</div>
 						</div>
 					</div>
 				</div>
@@ -302,6 +317,40 @@
 		background-color: rgba(80, 130, 180, 0.14);
 		color: #2f5a85;
 		border: 1px solid rgba(80, 130, 180, 0.3);
+	}
+
+	.medium__video {
+		margin-bottom: 1.25rem;
+		text-align: center;
+	}
+
+	.medium__video-label {
+		font-size: 0.72rem;
+		font-weight: 600;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+		color: var(--color-charcoal-muted);
+		margin: 0 0 0.6rem;
+	}
+
+	.medium__video-wrap {
+		position: relative;
+		width: 100%;
+		max-width: 560px;
+		margin: 0 auto;
+		aspect-ratio: 16 / 9;
+		border-radius: 6px;
+		overflow: hidden;
+		border: 1px solid var(--color-line);
+		background-color: var(--color-beige-dark);
+	}
+
+	.medium__video-wrap iframe {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		display: block;
 	}
 
 	.medium__action {

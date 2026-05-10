@@ -58,7 +58,6 @@
 <nav class="nav" class:nav--scrolled={scrolled} aria-label="Primary">
 	<div class="nav__inner">
 		<a href="#hero" class="nav__brand" onclick={(e) => go('hero', e)}>
-			<span class="nav__brand-mark">∞</span>
 			<span class="nav__brand-text">Sculpted in Pixels</span>
 		</a>
 

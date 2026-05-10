@@ -65,8 +65,7 @@
 			<p>
 				But each of those earlier makers was in the room. The sculptor knew the tradition. The
 				photographer documented a living body. The person who typed "Indian classical dance"
-				into an AI generator in 2025 was not. And the bronze sat in one temple. KOYAL has two
-				million views and no disclaimer. The medium is not the problem. What the medium
+				into an AI generator in 2025 was not. And the bronze sat in one temple. KOYAL has thousands of views and no disclaimer. The medium is not the problem. What the medium
 				inherited is. The dance AI learned from was already cleaned up. Colonial law
 				criminalized the devadasis. Brahminical reform sanitized what remained. The Sangeet
 				Natak Akademi folded a handful of cleansed forms, with Bharatanatyam at the front, into

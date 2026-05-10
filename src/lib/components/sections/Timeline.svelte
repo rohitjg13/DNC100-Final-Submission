@@ -124,8 +124,8 @@
 			short:
 				"KOYAL generates Indian classical dance without naming a specific form. It draws from Bharatanatyam's visual vocabulary, the most documented form online, and produces aesthetics without rasa, grammar without meaning.",
 			long:
-				'KOYAL is not malicious. It does not know it is doing anything. It reaches into a latent space shaped by the internet (which was shaped by SNA recognition, which was shaped by Rukmini Devi\'s sanitization, which was made possible by colonial criminalization of the devadasis) and pulls out an image that reads as "Indian classical dance" because it averages the most-documented exemplars. The image circulates. Millions watch. The literacy problem accelerates.',
-			added: ['Millions of views', 'Viral reach', 'Frictionless reproduction'],
+				'KOYAL is not malicious. It does not know it is doing anything. It reaches into a latent space shaped by the internet (which was shaped by SNA recognition, which was shaped by Rukmini Devi\'s sanitization, which was made possible by colonial criminalization of the devadasis) and pulls out an image that reads as "Indian classical dance" because it averages the most-documented exemplars. The image circulates. Thousands watch. The literacy problem accelerates.',
+			added: ['Thousands of views', 'Viral reach', 'Frictionless reproduction'],
 			erased: [
 				'Everything previous erasures already removed',
 				'Now amplified at global scale',

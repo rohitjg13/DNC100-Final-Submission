@@ -5,6 +5,11 @@
 	let { children } = $props();
 </script>
 
+<div class="mobile-block" aria-hidden="true">
+	<p class="mobile-block__label">DNC100 Final Assignment</p>
+	<p class="mobile-block__message">Please use a desktop or laptop to view this.</p>
+</div>
+
 <Nav />
 <main>
 	{@render children()}
@@ -20,6 +25,46 @@
 </footer>
 
 <style>
+	.mobile-block {
+		display: none;
+		position: fixed;
+		inset: 0;
+		z-index: 9999;
+		background-color: var(--color-cream);
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		padding: 2rem;
+		gap: 1rem;
+	}
+
+	.mobile-block__label {
+		font-family: var(--font-sans);
+		font-size: 0.72rem;
+		font-weight: 600;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: var(--color-warm-brown);
+		margin: 0;
+	}
+
+	.mobile-block__message {
+		font-family: var(--font-serif);
+		font-size: clamp(1.4rem, 6vw, 2rem);
+		font-weight: 600;
+		line-height: 1.25;
+		color: var(--color-dark-charcoal);
+		max-width: 20ch;
+		margin: 0;
+	}
+
+	@media (max-width: 768px) {
+		.mobile-block {
+			display: flex;
+		}
+	}
+
 	main {
 		min-height: 100vh;
 	}

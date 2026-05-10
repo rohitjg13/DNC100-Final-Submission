@@ -32,35 +32,33 @@
 		{
 			kind: 'final',
 			final:
-				'Your career is severely damaged. Your critique reaches 200 people. KOYAL has 2 million views. The literacy problem continues.'
+				'Your career is severely damaged. Your critique reaches 200 people. KOYAL has thousands of views. The literacy problem continues.'
 		}
 	];
 
 	const silentFinal =
-		'Your career continues. You perform at national festivals. You receive your grant. KOYAL reaches 2 million views. The literacy problem continues.';
+		'Your career continues. You perform at national festivals. You receive your grant. KOYAL reaches thousands of views. The literacy problem continues.';
 
 	let path = $state<Path | null>(null);
 	let speakStep = $state<number>(0); // 0..3 (3 = final)
 	let acted = $state<boolean>(false); // committed to whichever path
+	let timeouts: ReturnType<typeof setTimeout>[] = [];
 
 	function choose(p: Path) {
 		path = p;
 		speakStep = 0;
 		acted = true;
-	}
 
-	function continuePath() {
-		if (speakStep < speakSteps.length - 1) {
-			speakStep += 1;
+		if (p === 'speak') {
+			timeouts.push(setTimeout(() => { speakStep = 1; }, 1400));
+			timeouts.push(setTimeout(() => { speakStep = 2; }, 2800));
+			timeouts.push(setTimeout(() => { speakStep = speakSteps.length - 1; }, 4400));
 		}
 	}
 
-	function backDown() {
-		// "Back down" → end with same final but framed as the silent collapse
-		speakStep = speakSteps.length - 1;
-	}
-
 	function reset() {
+		timeouts.forEach(clearTimeout);
+		timeouts = [];
 		path = null;
 		speakStep = 0;
 		acted = false;
@@ -139,21 +137,15 @@
 								<span class="path-step__consequence-label">Consequence</span>
 								<p>{step.consequence}</p>
 							</div>
-
-							{#if i === speakStep && i < speakSteps.length - 1}
-								<div class="path-step__choice">
-									<button class="step-btn step-btn--continue" type="button" onclick={continuePath}>
-										Continue
-										<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12 H 19 M13 6 L 19 12 L 13 18" stroke-linecap="round" stroke-linejoin="round"/></svg>
-									</button>
-									<button class="step-btn step-btn--back" type="button" onclick={backDown}>
-										Back down
-									</button>
-								</div>
-							{/if}
 						</div>
 					{/if}
 				{/each}
+
+				{#if speakStep < speakSteps.length - 1}
+					<div class="path-pending" aria-label="Next consequence loading">
+						<span></span><span></span><span></span>
+					</div>
+				{/if}
 			</div>
 		{/if}
 
@@ -452,45 +444,30 @@
 		color: var(--color-charcoal-soft);
 	}
 
-	.path-step__choice {
+
+	.path-pending {
 		display: flex;
-		gap: 0.5rem;
-		flex-wrap: wrap;
-	}
-
-	.step-btn {
-		display: inline-flex;
 		align-items: center;
-		gap: 0.4rem;
-		padding: 0.65rem 1.1rem;
-		font-size: 0.78rem;
-		font-weight: 600;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-		border-radius: 4px;
-		transition: background-color 0.2s var(--ease-natural), color 0.2s var(--ease-natural), border-color 0.2s var(--ease-natural);
+		gap: 5px;
+		padding: 0.5rem 0 0.5rem 1.2rem;
+		margin-left: 1.2rem;
 	}
 
-	.step-btn--continue {
+	.path-pending span {
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
 		background-color: var(--color-warm-brown);
-		color: var(--color-cream);
-		border: 1px solid var(--color-warm-brown);
+		opacity: 0.4;
+		animation: path-dot-pulse 1.1s ease-in-out infinite;
 	}
 
-	.step-btn--continue:hover {
-		background-color: var(--color-terracotta-dark);
-		border-color: var(--color-terracotta-dark);
-	}
+	.path-pending span:nth-child(2) { animation-delay: 0.18s; }
+	.path-pending span:nth-child(3) { animation-delay: 0.36s; }
 
-	.step-btn--back {
-		background-color: transparent;
-		color: var(--color-charcoal-muted);
-		border: 1px solid var(--color-line-strong);
-	}
-
-	.step-btn--back:hover {
-		color: var(--color-dark-charcoal);
-		border-color: var(--color-charcoal-muted);
+	@keyframes path-dot-pulse {
+		0%, 100% { opacity: 0.25; transform: scale(0.85); }
+		50%       { opacity: 1;    transform: scale(1.15); }
 	}
 
 	.silence-final {
